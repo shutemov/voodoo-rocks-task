@@ -1,5 +1,6 @@
 <template>
 </template>
+
 <script setup lang="ts">
 import { ref, onMounted, Ref, computed } from "vue";
 import jsonplaceholdersService from "@/services/jsonplaceholderService";
@@ -65,6 +66,9 @@ const getNamesForPosts = async () => {
     ids.push(post.userId);
   }
 };
+
+const capitalizeString = (str: string) => str[0].toUpperCase() + str.slice(1);
 </script>
+
 <style lang="scss" scoped>
 </style>
