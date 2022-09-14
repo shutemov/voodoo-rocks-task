@@ -113,4 +113,17 @@ const capitalizeString = (str: string) => str[0].toUpperCase() + str.slice(1);
 </script>
 
 <style lang="scss" scoped>
+@import "bootstrap/scss/bootstrap.scss";
+
+.card-columns {
+  @include media-breakpoint-only(sm) {
+    column-count: 1;
+  }
+  @include media-breakpoint-only(md) {
+    column-count: 2;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 4;
+  }
+}
 </style>
