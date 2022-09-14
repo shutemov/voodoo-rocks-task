@@ -11,6 +11,15 @@ const posts: Ref<TPost[]> = ref([]);
 const query = ref("");
 const currentPage = ref(0);
 const limit = ref(20);
+
+onMounted(async () => {
+  posts.value = await jsonplaceholdersService.getAllPostsByLimits(
+    currentPage.value,
+    limit.value
+  );
+
+});
+
 </script>
 <style lang="scss" scoped>
 </style>
