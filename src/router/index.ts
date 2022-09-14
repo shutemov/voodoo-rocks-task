@@ -1,16 +1,16 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
-import TPosts from "@/components/TPosts.vue";
+import TPostsVue from "@/components/TPosts.vue";
+import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
     name: "home",
-    component: TPosts,
+    component: TPostsVue,
   },
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHashHistory(),
   routes,
 });
 
