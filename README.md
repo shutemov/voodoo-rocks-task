@@ -1,4 +1,6 @@
-# voodoo-rocks
+# voodoo-rocks ⛰️
+A small test task for [voodoo.rocks](https://voodoo.rocks/)  
+You can look at the stand: [https://shutemov.github.io/voodoo-rocks-task/](https://shutemov.github.io/voodoo-rocks-task/)
 
 ## Project setup
 ```
