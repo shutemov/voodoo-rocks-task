@@ -31,6 +31,12 @@ const currentPosts = computed(() => {
   });
 });
 
+const handleIncrPage = async () => {
+  currentPage.value++;
+  posts.value = await getPostsForPage();
+  await getNamesForPosts();
+};
+
 const getNamesForPosts = async () => {
   const ids: number[] = [];
   for (const post of posts.value) {
