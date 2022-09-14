@@ -37,6 +37,14 @@ const handleIncrPage = async () => {
   await getNamesForPosts();
 };
 
+const handleDecrPage = async () => {
+  if (currentPage.value < 1) return;
+  currentPage.value--;
+
+  posts.value = await getPostsForPage();
+  await getNamesForPosts();
+};
+
 const getNamesForPosts = async () => {
   const ids: number[] = [];
   for (const post of posts.value) {
