@@ -18,8 +18,23 @@ onMounted(async () => {
     limit.value
   );
 
+  await getNamesForPosts();
+});
 });
 
+const getNamesForPosts = async () => {
+  const ids: number[] = [];
+  for (const post of posts.value) {
+    if (!ids.includes(post.userId)) {
+      const user = await jsonplaceholdersService.getUserById(post.userId);
+
+      posts.value.forEach((_post) => {
+        if (_post.userId === user.id) _post.name = user.name;
+      });
+    }
+    ids.push(post.userId);
+  }
+};
 </script>
 <style lang="scss" scoped>
 </style>
