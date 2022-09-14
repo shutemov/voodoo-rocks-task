@@ -1,4 +1,46 @@
 <template>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-sm-12 col-lg-10 col-lg-6 mt-4 d-flex justify-content-center align-items-center"
+      >
+        <MSearchInput
+          :model-value="query"
+          @update:modelValue="query = $event"
+        />
+      </div>
+      <div
+        class="col-xs-12 col-lg-2 mt-4 d-flex justify-content-center align-items-center"
+      >
+        <MPagination
+          :current-page="currentPage"
+          @click:incr="handleIncrPage"
+          @click:decr="handleDecrPage"
+        />
+      </div>
+    </div>
+  </div>
+  <div class="card-columns mt-4">
+    <div
+      v-for="{ id, title, body, name } in currentPosts"
+      :key="id"
+      class="col"
+    >
+      <div class="card">
+        <div class="card-body text-left">
+          <h5 class="card-title text-primary">
+            {{ capitalizeString(title) }}
+          </h5>
+          <p class="card-text">
+            {{ capitalizeString(body) }}
+          </p>
+          <h6 class="text-secondary">
+            {{ name }}
+          </h6>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup lang="ts">
