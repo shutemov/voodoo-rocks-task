@@ -20,6 +20,15 @@ onMounted(async () => {
 
   await getNamesForPosts();
 });
+
+const currentPosts = computed(() => {
+  if (query.value === "") return posts.value;
+
+  return posts.value.filter((post) => {
+    return post.name
+      ?.toLocaleLowerCase()
+      .includes(query.value.toLocaleLowerCase().trim());
+  });
 });
 
 const getNamesForPosts = async () => {
