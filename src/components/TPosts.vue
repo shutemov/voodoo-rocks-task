@@ -45,6 +45,13 @@ const handleDecrPage = async () => {
   await getNamesForPosts();
 };
 
+const getPostsForPage = async () => {
+  return await jsonplaceholdersService.getAllPostsByLimits(
+    currentPage.value,
+    limit.value
+  );
+};
+
 const getNamesForPosts = async () => {
   const ids: number[] = [];
   for (const post of posts.value) {
